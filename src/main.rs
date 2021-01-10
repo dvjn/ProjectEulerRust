@@ -1,7 +1,7 @@
 use project_euler::{mod_problems, solve_problem};
 use std::env;
 
-mod_problems! {1}
+mod_problems! {1 2}
 
 fn main() {
     let selected_problem = env::args()
@@ -10,7 +10,7 @@ fn main() {
         .parse::<i32>()
         .expect("Non-integer <problem_number> 🤦");
 
-    let answer = solve_problem! {selected_problem {1}};
+    let answer = solve_problem! {selected_problem {1 2}};
 
     println!("Answer to problem {} is {}", selected_problem, answer);
 }
