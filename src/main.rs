@@ -1,16 +1,19 @@
-use project_euler::{mod_problems, solve_problem};
-use std::env;
+use project_euler::{copy_to_clipboard, mod_problems, solve_problem, ProjectEulerCli};
+use structopt::StructOpt;
+use webbrowser;
 
 mod_problems! {1 2}
 
 fn main() {
-    let selected_problem = env::args()
-        .nth(1)
-        .expect("Missing <problem_number> 🤦")
-        .parse::<i32>()
-        .expect("Non-integer <problem_number> 🤦");
-
-    let answer = solve_problem! {selected_problem {1 2}};
-
-    println!("Answer to problem {} is {}", selected_problem, answer);
+    match ProjectEulerCli::from_args() {
+        ProjectEulerCli::Open { problem } => {
+            webbrowser::open(format!("https://projecteuler.net/problem={}", problem).as_str())
+                .expect("Could not open browser 🙄");
+        }
+        ProjectEulerCli::Solve { problem } => {
+            let answer = solve_problem! {problem {1 2}};
+            copy_to_clipboard(answer.to_string());
+            println!("Answer to problem {} is {} 💡", problem, answer);
+        }
+    }
 }
