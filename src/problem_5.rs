@@ -1,3 +1,5 @@
+//! Smallest multiple
+
 use std::cmp::max;
 use std::collections::HashMap;
 
@@ -11,7 +13,7 @@ pub fn solve() -> i32 {
         })
 }
 
-fn get_factor_map(n: u8) -> HashMap<u8, usize> {
+pub fn get_factor_map(n: u8) -> HashMap<u8, usize> {
     let mut factors_map: HashMap<u8, usize> = HashMap::new();
 
     let mut number = n;
@@ -36,7 +38,7 @@ fn get_factor_map(n: u8) -> HashMap<u8, usize> {
     factors_map
 }
 
-fn combine_factor_maps(
+pub fn combine_factor_maps(
     factor_map_1: HashMap<u8, usize>,
     factor_map_2: HashMap<u8, usize>,
 ) -> HashMap<u8, usize> {

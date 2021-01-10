@@ -1,3 +1,5 @@
+//! Even Fibonacci numbers
+
 pub fn solve() -> i32 {
     let (mut a, mut b) = (1u32, 2u32);
     let mut sum = 0u32;

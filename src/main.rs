@@ -1,8 +1,6 @@
-use project_euler::{copy_to_clipboard, mod_problems, solve_problem, ProjectEulerCli};
+use project_euler::{copy_to_clipboard, solve_problem, ProjectEulerCli};
 use structopt::StructOpt;
 use webbrowser;
-
-mod_problems! {1 2 3 4 5 6}
 
 fn main() {
     match ProjectEulerCli::from_args() {
