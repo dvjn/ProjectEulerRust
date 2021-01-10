@@ -1,0 +1,8 @@
+[package]
+name = "project_euler"
+version = "0.1.0"
+authors = ["Divya Jain <divykjain@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+paste = "1.0.4"
