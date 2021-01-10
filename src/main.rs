@@ -2,7 +2,7 @@ use project_euler::{copy_to_clipboard, mod_problems, solve_problem, ProjectEuler
 use structopt::StructOpt;
 use webbrowser;
 
-mod_problems! {1 2}
+mod_problems! {1 2 3}
 
 fn main() {
     match ProjectEulerCli::from_args() {
@@ -11,7 +11,7 @@ fn main() {
                 .expect("Could not open browser 🙄");
         }
         ProjectEulerCli::Solve { problem } => {
-            let answer = solve_problem! {problem {1 2}};
+            let answer = solve_problem! {problem {1 2 3}};
             copy_to_clipboard(answer.to_string());
             println!("Answer to problem {} is {} 💡", problem, answer);
         }
