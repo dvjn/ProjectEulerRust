@@ -6,7 +6,7 @@ use structopt::StructOpt;
 #[macro_export]
 macro_rules! include_problems {($($problem:tt)*) => (::paste::paste! {
     $(pub mod [<problem_$problem>];)*
-    pub fn solve_problem(selected_problem: u8) -> i32 {
+    pub fn solve_problem(selected_problem: u8) -> u64 {
         match selected_problem {
             $($problem => {
                 use $crate::[<problem_$problem>];

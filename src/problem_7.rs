@@ -2,7 +2,7 @@
 
 use std::vec::Vec;
 
-pub fn solve() -> i32 {
+pub fn solve() -> u64 {
     let mut primes: Vec<u32> = vec![2];
     let mut n = 1;
     let mut current_number = 3;
@@ -15,5 +15,5 @@ pub fn solve() -> i32 {
         current_number += 1;
     }
 
-    primes.pop().unwrap() as i32
+    primes.pop().unwrap() as u64
 }

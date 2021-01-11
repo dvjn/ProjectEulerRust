@@ -1,6 +1,6 @@
 //! Largest palindrome product
 
-pub fn solve() -> i32 {
+pub fn solve() -> u64 {
     let mut largest_product = 0;
 
     for x in (100..=990).rev().step_by(11) {
@@ -12,7 +12,7 @@ pub fn solve() -> i32 {
         }
     }
 
-    largest_product as i32
+    largest_product as u64
 }
 
 pub fn is_palindrome(n: u32) -> bool {

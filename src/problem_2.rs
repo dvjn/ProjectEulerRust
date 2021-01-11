@@ -1,6 +1,6 @@
 //! Even Fibonacci numbers
 
-pub fn solve() -> i32 {
+pub fn solve() -> u64 {
     let (mut a, mut b) = (1u32, 2u32);
     let mut sum = 0u32;
     while a < 4_000_000 {
@@ -11,5 +11,5 @@ pub fn solve() -> i32 {
         a = b - a;
     }
 
-    sum as i32
+    sum as u64
 }

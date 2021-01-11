@@ -1,6 +1,6 @@
 //! Largest prime factor
 
-pub fn solve() -> i32 {
+pub fn solve() -> u64 {
     let mut number = 600851475143u64;
     let mut factor = 2;
 
@@ -12,5 +12,5 @@ pub fn solve() -> i32 {
         }
     }
 
-    factor as i32
+    factor as u64
 }

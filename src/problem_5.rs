@@ -3,13 +3,13 @@
 use std::cmp::max;
 use std::collections::HashMap;
 
-pub fn solve() -> i32 {
+pub fn solve() -> u64 {
     (1..=20)
         .map(get_factor_map)
         .fold(HashMap::new(), combine_factor_maps)
         .iter()
-        .fold(1i32, |number, (factor, frequency)| {
-            number * (*factor as i32).pow(*frequency as u32)
+        .fold(1u64, |number, (factor, frequency)| {
+            number * (*factor as u64).pow(*frequency as u32)
         })
 }
 
