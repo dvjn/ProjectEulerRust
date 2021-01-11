@@ -9,7 +9,7 @@ fn main() {
                 .expect("Could not open browser 🙄");
         }
         ProjectEulerCli::Solve { problem } => {
-            let answer = solve_problem! {problem {1 2 3 4 5 6}};
+            let answer = solve_problem(problem);
             copy_to_clipboard(answer.to_string());
             println!("Answer to problem {} is {} 💡", problem, answer);
         }
