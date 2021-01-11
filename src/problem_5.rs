@@ -42,7 +42,7 @@ pub fn combine_factor_maps(
     factor_map_1: HashMap<u8, usize>,
     factor_map_2: HashMap<u8, usize>,
 ) -> HashMap<u8, usize> {
-    let mut combined_factor_map: HashMap<u8, usize> = factor_map_1.clone();
+    let mut combined_factor_map: HashMap<u8, usize> = factor_map_1;
     for (factor, frequency) in factor_map_2.iter() {
         match combined_factor_map.get_mut(&factor) {
             Some(combined_frequency) => {

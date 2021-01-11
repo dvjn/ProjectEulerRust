@@ -1,6 +1,5 @@
 use project_euler::{copy_to_clipboard, solve_problem, ProjectEulerCli};
 use structopt::StructOpt;
-use webbrowser;
 
 fn main() {
     match ProjectEulerCli::from_args() {

@@ -7,7 +7,7 @@ pub fn solve() -> i32 {
         if a % 2 == 0 {
             sum += a;
         }
-        b = a + b;
+        b += a;
         a = b - a;
     }
 
