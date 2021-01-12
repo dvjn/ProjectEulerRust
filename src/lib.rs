@@ -17,7 +17,7 @@ macro_rules! include_problems {($($problem:tt)*) => (::paste::paste! {
     }
 })}
 
-include_problems! {1 2 3 4 5 6 7 8 9 10}
+include_problems! {0001 0002 0003 0004 0005 0006 0007 0008 0009 0010}
 
 #[derive(Debug, StructOpt)]
 #[structopt(name = "project_euler", about = "Let's solve Project Euler")]
