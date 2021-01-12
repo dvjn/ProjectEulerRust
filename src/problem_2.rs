@@ -1,9 +1,13 @@
 //! Even Fibonacci numbers
 
 pub fn solve() -> u64 {
-    let (mut a, mut b) = (1u32, 2u32);
-    let mut sum = 0u32;
-    while a < 4_000_000 {
+    sum_of_even_fibonacci_numbers(4_000_000)
+}
+
+pub fn sum_of_even_fibonacci_numbers(below: u64) -> u64 {
+    let (mut a, mut b) = (1u64, 2u64);
+    let mut sum = 0;
+    while a < below {
         if a % 2 == 0 {
             sum += a;
         }
@@ -11,5 +15,5 @@ pub fn solve() -> u64 {
         a = b - a;
     }
 
-    sum as u64
+    sum
 }

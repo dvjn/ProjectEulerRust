@@ -1,6 +1,10 @@
 //! Largest product in a series
 
 pub fn solve() -> u64 {
+    largest_product_of_adjacent_digits(13)
+}
+
+pub fn largest_product_of_adjacent_digits(n: usize) -> u64 {
     "73167176531330624919225119674426574742355349194934\
     96983520312774506326239578318016984801869478851843\
     85861560789112949495459501737958331952853208805511\
@@ -22,10 +26,10 @@ pub fn solve() -> u64 {
     05886116467109405077541002256983155200055935729725\
     71636269561882670428252483600823257530420752963450"
         .chars()
-        .map(|letter| letter.to_digit(10).unwrap() as u8)
-        .collect::<Vec<u8>>()[..]
-        .windows(13)
-        .map(|window| window.iter().map(|digit| *digit as u64).product())
+        .map(|letter| letter.to_digit(10).unwrap() as u64)
+        .collect::<Vec<u64>>()[..]
+        .windows(n)
+        .map(|window| window.iter().product())
         .max()
         .unwrap()
 }

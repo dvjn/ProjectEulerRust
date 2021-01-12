@@ -4,7 +4,11 @@ use std::cmp::max;
 use std::collections::HashMap;
 
 pub fn solve() -> u64 {
-    (1..=20)
+    smallest_multiple(20)
+}
+
+pub fn smallest_multiple(upto: u64) -> u64 {
+    (1..=upto)
         .map(get_factor_map)
         .fold(HashMap::new(), combine_factor_maps)
         .iter()
@@ -13,8 +17,8 @@ pub fn solve() -> u64 {
         })
 }
 
-pub fn get_factor_map(n: u8) -> HashMap<u8, usize> {
-    let mut factors_map: HashMap<u8, usize> = HashMap::new();
+pub fn get_factor_map(n: u64) -> HashMap<u64, usize> {
+    let mut factors_map: HashMap<u64, usize> = HashMap::new();
 
     let mut number = n;
     let mut factor = 2;
@@ -39,10 +43,10 @@ pub fn get_factor_map(n: u8) -> HashMap<u8, usize> {
 }
 
 pub fn combine_factor_maps(
-    factor_map_1: HashMap<u8, usize>,
-    factor_map_2: HashMap<u8, usize>,
-) -> HashMap<u8, usize> {
-    let mut combined_factor_map: HashMap<u8, usize> = factor_map_1;
+    factor_map_1: HashMap<u64, usize>,
+    factor_map_2: HashMap<u64, usize>,
+) -> HashMap<u64, usize> {
+    let mut combined_factor_map: HashMap<u64, usize> = factor_map_1;
     for (factor, frequency) in factor_map_2.iter() {
         match combined_factor_map.get_mut(&factor) {
             Some(combined_frequency) => {
