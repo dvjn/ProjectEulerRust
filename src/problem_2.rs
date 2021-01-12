@@ -17,3 +17,13 @@ pub fn sum_of_even_fibonacci_numbers(below: u64) -> u64 {
 
     sum
 }
+
+#[cfg(test)]
+mod tests {
+    use super::sum_of_even_fibonacci_numbers;
+
+    #[test]
+    fn given_example() {
+        assert_eq!(sum_of_even_fibonacci_numbers(100), 44);
+    }
+}

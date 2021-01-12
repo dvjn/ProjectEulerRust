@@ -20,3 +20,13 @@ pub fn nth_prime(n: usize) -> u64 {
 
     primes.pop().unwrap()
 }
+
+#[cfg(test)]
+mod tests {
+    use super::nth_prime;
+
+    #[test]
+    fn given_example() {
+        assert_eq!(nth_prime(6), 13);
+    }
+}

@@ -60,3 +60,13 @@ pub fn combine_factor_maps(
 
     combined_factor_map
 }
+
+#[cfg(test)]
+mod tests {
+    use super::smallest_multiple;
+
+    #[test]
+    fn given_example() {
+        assert_eq!(smallest_multiple(10), 2520);
+    }
+}

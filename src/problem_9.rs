@@ -17,3 +17,13 @@ pub fn product_of_pythgorean_triplet_with_sum(sum: u64) -> u64 {
 
     panic!("Triplet not found!");
 }
+
+#[cfg(test)]
+mod tests {
+    use super::product_of_pythgorean_triplet_with_sum;
+
+    #[test]
+    fn given_example() {
+        assert_eq!(product_of_pythgorean_triplet_with_sum(12), 60);
+    }
+}

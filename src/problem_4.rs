@@ -35,3 +35,13 @@ pub fn is_palindrome(n: u64) -> bool {
     }
     n == reversed
 }
+
+#[cfg(test)]
+mod tests {
+    use super::largest_palindrome_product;
+
+    #[test]
+    fn given_example() {
+        assert_eq!(largest_palindrome_product(2), 9009);
+    }
+}

@@ -18,3 +18,13 @@ pub fn largest_prime_factor(number: u64) -> u64 {
 
     factor
 }
+
+#[cfg(test)]
+mod tests {
+    use super::largest_prime_factor;
+
+    #[test]
+    fn given_example() {
+        assert_eq!(largest_prime_factor(13195), 29);
+    }
+}

@@ -33,3 +33,13 @@ pub fn largest_product_of_adjacent_digits(n: usize) -> u64 {
         .max()
         .unwrap()
 }
+
+#[cfg(test)]
+mod tests {
+    use super::largest_product_of_adjacent_digits;
+
+    #[test]
+    fn given_example() {
+        assert_eq!(largest_product_of_adjacent_digits(4), 5832);
+    }
+}
