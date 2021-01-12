@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["product_of_pythgorean_triplet_with_sum",""],["solve",""]]});

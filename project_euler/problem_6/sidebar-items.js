@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["difference_of_sums_squared_and_squared_sums",""],["solve",""],["sum_of_natural_numbers",""],["sum_of_squared_natural_numbers",""]]});
