@@ -217,6 +217,7 @@ name = "project_euler"
 version = "1.0.0"
 dependencies = [
  "clipboard",
+ "lazy_static",
  "paste",
  "structopt",
  "webbrowser",
