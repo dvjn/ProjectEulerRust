@@ -15,6 +15,11 @@ jobs:
         uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
+      - name: Build
+        uses: actions-rs/cargo@v1
+        with:
+          command: build
+          args: --all-features
       - name: Format (rustfmt)
         uses: actions-rs/cargo@v1
         with:
