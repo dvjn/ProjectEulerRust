@@ -27,4 +27,9 @@ mod tests {
     fn given_example() {
         assert_eq!(largest_prime_factor(13195), 29);
     }
+
+    #[test]
+    fn given_problem() {
+        assert_eq!(largest_prime_factor(600851475143), 6857);
+    }
 }

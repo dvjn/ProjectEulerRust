@@ -24,4 +24,9 @@ mod tests {
     fn given_example() {
         assert_eq!(difference_of_sums_squared_and_squared_sums(10), 2640);
     }
+
+    #[test]
+    fn given_problem() {
+        assert_eq!(difference_of_sums_squared_and_squared_sums(100), 25164150);
+    }
 }

@@ -26,4 +26,9 @@ mod tests {
     fn given_example() {
         assert_eq!(sum_of_even_fibonacci_numbers(100), 44);
     }
+
+    #[test]
+    fn given_problem() {
+        assert_eq!(sum_of_even_fibonacci_numbers(4_000_000), 4613732);
+    }
 }

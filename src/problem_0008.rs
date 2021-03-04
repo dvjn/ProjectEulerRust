@@ -42,4 +42,9 @@ mod tests {
     fn given_example() {
         assert_eq!(largest_product_of_adjacent_digits(4), 5832);
     }
+
+    #[test]
+    fn given_problem() {
+        assert_eq!(largest_product_of_adjacent_digits(13), 23514624000);
+    }
 }

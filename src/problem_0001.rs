@@ -16,4 +16,9 @@ mod tests {
     fn given_example() {
         assert_eq!(sum_of_multiples_of_3_and_5(10), 23);
     }
+
+    #[test]
+    fn given_problem() {
+        assert_eq!(sum_of_multiples_of_3_and_5(1000), 233168);
+    }
 }

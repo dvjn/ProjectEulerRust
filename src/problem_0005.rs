@@ -69,4 +69,9 @@ mod tests {
     fn given_example() {
         assert_eq!(smallest_multiple(10), 2520);
     }
+
+    #[test]
+    fn given_problem() {
+        assert_eq!(smallest_multiple(20), 232792560);
+    }
 }

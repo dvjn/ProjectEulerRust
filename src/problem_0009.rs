@@ -26,4 +26,9 @@ mod tests {
     fn given_example() {
         assert_eq!(product_of_pythgorean_triplet_with_sum(12), 60);
     }
+
+    #[test]
+    fn given_problem() {
+        assert_eq!(product_of_pythgorean_triplet_with_sum(1000), 31875000);
+    }
 }

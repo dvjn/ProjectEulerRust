@@ -29,4 +29,9 @@ mod tests {
     fn given_example() {
         assert_eq!(nth_prime(6), 13);
     }
+
+    #[test]
+    fn given_problem() {
+        assert_eq!(nth_prime(10_001), 104743);
+    }
 }

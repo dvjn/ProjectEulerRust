@@ -44,4 +44,9 @@ mod tests {
     fn given_example() {
         assert_eq!(largest_palindrome_product(2), 9009);
     }
+
+    #[test]
+    fn given_problem() {
+        assert_eq!(largest_palindrome_product(3), 906609);
+    }
 }

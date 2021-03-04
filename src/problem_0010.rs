@@ -29,4 +29,9 @@ mod tests {
     fn given_example() {
         assert_eq!(sum_of_primes(10), 17);
     }
+
+    #[test]
+    fn given_problem() {
+        assert_eq!(sum_of_primes(2_000_000), 142913828922);
+    }
 }
