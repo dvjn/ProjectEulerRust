@@ -19,7 +19,7 @@ jobs:
         uses: actions-rs/cargo@v1
         with:
           command: build
-          args: --all-features
+          args: --release --all-features
       - name: Format (rustfmt)
         uses: actions-rs/cargo@v1
         with:
@@ -29,9 +29,9 @@ jobs:
         uses: actions-rs/cargo@v1
         with:
           command: clippy
-          args: --verbose
+          args: --release --verbose
       - name: Test
         uses: actions-rs/cargo@v1
         with:
           command: test
-          args: --verbose
+          args: --release --verbose
