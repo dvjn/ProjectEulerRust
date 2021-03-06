@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["solve",""],["sum_of_digits_of_2s_power",""]]});
