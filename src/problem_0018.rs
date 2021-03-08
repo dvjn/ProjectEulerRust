@@ -9,9 +9,9 @@ pub fn solve() -> u64 {
 pub fn read_triangle(filename: &str) -> Vec<Vec<u64>> {
     fs::read_to_string(filename)
         .expect("Cannot read input.")
-        .split("\n")
+        .split('\n')
         .map(|line| {
-            line.split(" ")
+            line.split(' ')
                 .map(|number| number.parse().unwrap())
                 .collect()
         })
