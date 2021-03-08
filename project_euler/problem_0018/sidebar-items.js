@@ -1,1 +1,1 @@
-initSidebarItems({"fn":[["maximum_path_sum",""],["parse_triangle",""],["solve",""]]});
+initSidebarItems({"fn":[["maximum_path_sum",""],["read_triangle",""],["solve",""]]});
