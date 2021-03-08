@@ -3,13 +3,12 @@
 use std::{cmp::max, fs};
 
 pub fn solve() -> u64 {
-    maximum_path_sum(parse_triangle(
-        fs::read_to_string("inputs/problem_0018.txt").expect("Cannot read input."),
-    ))
+    maximum_path_sum(read_triangle("inputs/problem_0018.txt"))
 }
 
-pub fn parse_triangle(input: String) -> Vec<Vec<u64>> {
-    input
+pub fn read_triangle(filename: &str) -> Vec<Vec<u64>> {
+    fs::read_to_string(filename)
+        .expect("Cannot read input.")
         .split("\n")
         .map(|line| {
             line.split(" ")
@@ -34,15 +33,12 @@ pub fn maximum_path_sum(triangle: Vec<Vec<u64>>) -> u64 {
 
 #[cfg(test)]
 mod tests {
-    use super::{maximum_path_sum, parse_triangle};
-    use std::fs;
+    use super::{maximum_path_sum, read_triangle};
 
     #[test]
     fn given_example() {
         assert_eq!(
-            maximum_path_sum(parse_triangle(
-                fs::read_to_string("inputs/problem_0018.test.txt").expect("Cannot read input.")
-            )),
+            maximum_path_sum(read_triangle("inputs/problem_0018.test.txt")),
             23
         );
     }
@@ -50,9 +46,7 @@ mod tests {
     #[test]
     fn given_problem() {
         assert_eq!(
-            maximum_path_sum(parse_triangle(
-                fs::read_to_string("inputs/problem_0018.txt").expect("Cannot read input.")
-            )),
+            maximum_path_sum(read_triangle("inputs/problem_0018.txt")),
             1074
         );
     }
