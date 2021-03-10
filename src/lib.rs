@@ -1,12 +1,12 @@
 #![macro_use]
 
 use clipboard::{ClipboardContext, ClipboardProvider};
+use paste::paste;
 use structopt::StructOpt;
 
 #[macro_export]
-macro_rules! include_problems {($($problem:tt)*) => (::paste::paste! {
+macro_rules! include_problems {($($problem:tt)*) => (paste! {
     $(pub mod [<problem_$problem>];)*
-
     #[allow(clippy::zero_prefixed_literal)]
     pub fn solve_problem(selected_problem: u8) -> u64 {
         match selected_problem {
