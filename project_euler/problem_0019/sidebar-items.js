@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["get_first_day_of_year",""],["get_sundays_on_first",""],["is_leap",""],["solve",""],["sundays_on_first_of_the_month",""]],"struct":[["Day",""]]});

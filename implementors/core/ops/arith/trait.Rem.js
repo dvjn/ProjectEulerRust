@@ -1,0 +1,3 @@
+(function() {var implementors = {};
+implementors["project_euler"] = [{"text":"impl&lt;__RhsT&gt; Rem&lt;__RhsT&gt; for Day <span class=\"where fmt-newline\">where<br>&nbsp;&nbsp;&nbsp;&nbsp;u8: Rem&lt;__RhsT, Output = u8&gt;,&nbsp;</span>","synthetic":false,"types":[]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()
