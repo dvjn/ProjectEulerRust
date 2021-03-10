@@ -1,6 +1,5 @@
-use project_euler::{copy_to_clipboard, solve_problem, ProjectEulerCli};
+use project_euler::{copy_to_clipboard, open_url, solve_problem, ProjectEulerCli};
 use structopt::StructOpt;
-use webbrowser::open as open_url;
 
 fn main() {
     match ProjectEulerCli::from_args() {
@@ -10,7 +9,7 @@ fn main() {
         }
         ProjectEulerCli::Solve { problem } => {
             let answer = solve_problem(problem);
-            copy_to_clipboard(answer.to_string());
+            copy_to_clipboard(answer.to_string()).expect("Failed to copy to clipboard 😤");
             println!("Answer to problem {} is {} 💡", problem, answer);
         }
     }

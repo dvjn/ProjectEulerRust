@@ -2,6 +2,7 @@
 
 use clipboard::{ClipboardContext, ClipboardProvider};
 use paste::paste;
+use std::error::Error;
 use structopt::StructOpt;
 
 #[macro_export]
@@ -32,8 +33,10 @@ pub enum ProjectEulerCli {
     Solve { problem: u8 },
 }
 
-pub fn copy_to_clipboard(content: String) {
-    let mut ctx: ClipboardContext = ClipboardProvider::new().expect("Failed to use clipboard 😤");
+// Helpers for cli
+
+pub use webbrowser::open as open_url;
+pub fn copy_to_clipboard(content: String) -> Result<(), Box<dyn Error>> {
+    let mut ctx: ClipboardContext = ClipboardProvider::new()?;
     ctx.set_contents(content)
-        .expect("Failed to copy to clipboard 😤");
 }
