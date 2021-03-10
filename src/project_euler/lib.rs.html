@@ -46,16 +46,14 @@
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="attribute">#![<span class="ident">macro_use</span>]</span>
 
-<span class="attribute">#[<span class="ident">macro_use</span>]</span>
-<span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">lazy_static</span>;
-
 <span class="kw">use</span> <span class="ident">clipboard</span>::{<span class="ident">ClipboardContext</span>, <span class="ident">ClipboardProvider</span>};
+<span class="kw">use</span> <span class="ident">paste</span>::<span class="ident">paste</span>;
+<span class="kw">use</span> <span class="ident">std</span>::<span class="ident">error</span>::<span class="ident">Error</span>;
 <span class="kw">use</span> <span class="ident">structopt</span>::<span class="ident">StructOpt</span>;
 
 <span class="attribute">#[<span class="ident">macro_export</span>]</span>
-<span class="macro">macro_rules</span><span class="macro">!</span> <span class="ident">include_problems</span> {($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">problem</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>) <span class="op">=</span><span class="op">&gt;</span> (::<span class="ident">paste</span>::<span class="macro">paste</span><span class="macro">!</span> {
+<span class="macro">macro_rules</span><span class="macro">!</span> <span class="ident">include_problems</span> {($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">problem</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>) <span class="op">=</span><span class="op">&gt;</span> (<span class="macro">paste</span><span class="macro">!</span> {
     $(<span class="kw">pub</span> <span class="kw">mod</span> [<span class="op">&lt;</span><span class="ident">problem_</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">problem</span><span class="op">&gt;</span>];)<span class="op">*</span>
-
     <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">clippy</span>::<span class="ident">zero_prefixed_literal</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">solve_problem</span>(<span class="ident">selected_problem</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">u64</span> {
         <span class="kw">match</span> <span class="ident">selected_problem</span> {
@@ -81,10 +79,12 @@
     <span class="ident">Solve</span> { <span class="ident">problem</span>: <span class="ident">u8</span> },
 }
 
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">copy_to_clipboard</span>(<span class="ident">content</span>: <span class="ident">String</span>) {
-    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">ctx</span>: <span class="ident">ClipboardContext</span> <span class="op">=</span> <span class="ident">ClipboardProvider</span>::<span class="ident">new</span>().<span class="ident">expect</span>(<span class="string">&quot;Failed to use clipboard 😤&quot;</span>);
+<span class="comment">// Helpers for cli</span>
+
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">webbrowser</span>::<span class="ident">open</span> <span class="kw">as</span> <span class="ident">open_url</span>;
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">copy_to_clipboard</span>(<span class="ident">content</span>: <span class="ident">String</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">Error</span><span class="op">&gt;</span><span class="op">&gt;</span> {
+    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">ctx</span>: <span class="ident">ClipboardContext</span> <span class="op">=</span> <span class="ident">ClipboardProvider</span>::<span class="ident">new</span>()<span class="question-mark">?</span>;
     <span class="ident">ctx</span>.<span class="ident">set_contents</span>(<span class="ident">content</span>)
-        .<span class="ident">expect</span>(<span class="string">&quot;Failed to copy to clipboard 😤&quot;</span>);
 }
 </pre></div>
 </section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../";window.currentCrate = "project_euler";</script><script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script><script defer src="../../search-index.js"></script></body></html>
