@@ -2,6 +2,7 @@
 
 use lazy_static::lazy_static;
 use std::{collections::HashMap, sync::Mutex};
+use sugars::{hmap, mutex};
 
 pub fn solve() -> u64 {
     number_letter_counts_upto(1000)
@@ -48,15 +49,15 @@ const ORDERS: [&str; 6] = [
 
 lazy_static! {
     static ref NUMBER_LETTER_COUNTS: Mutex<HashMap<u64, u64>> = {
-        let mut m = HashMap::new();
+        let mut number_letter_counts = hmap!();
         for (number, word) in ONES.iter().enumerate() {
-            m.insert(number as u64, word.len() as u64);
+            number_letter_counts.insert(number as u64, word.len() as u64);
         }
         for (number, word) in (10..100).step_by(10).zip(TENS.iter()) {
-            m.insert(number as u64, word.len() as u64);
+            number_letter_counts.insert(number as u64, word.len() as u64);
         }
 
-        Mutex::new(m)
+        mutex!(number_letter_counts)
     };
 }
 

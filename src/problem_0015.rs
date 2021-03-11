@@ -2,17 +2,14 @@
 
 use lazy_static::lazy_static;
 use std::{collections::HashMap, sync::Mutex};
+use sugars::{hmap, mutex};
 
 pub fn solve() -> u64 {
     number_of_square_lattice_paths(20)
 }
 
 lazy_static! {
-    static ref PATHS: Mutex<HashMap<(u64, u64), u64>> = {
-        let mut m = HashMap::new();
-        m.insert((0, 0), 1);
-        Mutex::new(m)
-    };
+    static ref PATHS: Mutex<HashMap<(u64, u64), u64>> = mutex!(hmap! {(0, 0)=>1});
 }
 
 pub fn number_of_square_lattice_paths(grid_size: u64) -> u64 {

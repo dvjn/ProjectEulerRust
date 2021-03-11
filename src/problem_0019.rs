@@ -3,6 +3,7 @@
 use derive_more::{Add, Rem, Sub};
 use lazy_static::lazy_static;
 use std::{collections::HashMap, sync::Mutex};
+use sugars::{hmap, mutex};
 
 pub fn solve() -> u64 {
     sundays_on_first_of_the_month(1901, 2000)
@@ -12,12 +13,8 @@ pub fn solve() -> u64 {
 pub struct Day(u8);
 
 lazy_static! {
-    static ref SUNDAYS_ON_FIRST: Mutex<HashMap<(Day, bool), u64>> = Mutex::new(HashMap::new());
-    static ref FIRST_DAY_OF_YEAR: Mutex<HashMap<u16, Day>> = {
-        let mut m = HashMap::new();
-        m.insert(1900, Day(1));
-        Mutex::new(m)
-    };
+    static ref SUNDAYS_ON_FIRST: Mutex<HashMap<(Day, bool), u64>> = mutex!(hmap!());
+    static ref FIRST_DAY_OF_YEAR: Mutex<HashMap<u16, Day>> = mutex!(hmap!(1900=>Day(1)));
     static ref YEAR_DAY_OFFSET: Day = Day((365 % 7) as u8);
     static ref LEAP_YEAR_DAY_OFFSET: Day = Day((366 % 7) as u8);
     static ref YEAR_MONTH_DAYS_OFFSETS: Box<[Day]> =

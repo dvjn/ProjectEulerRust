@@ -7,8 +7,7 @@ pub fn solve() -> u64 {
 }
 
 pub fn nth_prime(n: usize) -> u64 {
-    let mut primes: Vec<u64> = Vec::with_capacity(n);
-    primes.push(2);
+    let mut primes: Vec<u64> = vec![2];
     let mut current_number = 3;
 
     while primes.len() < n {

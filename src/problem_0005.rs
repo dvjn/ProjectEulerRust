@@ -2,6 +2,7 @@
 
 use std::cmp::max;
 use std::collections::HashMap;
+use sugars::hmap;
 
 pub fn solve() -> u64 {
     smallest_multiple(20)
@@ -10,7 +11,7 @@ pub fn solve() -> u64 {
 pub fn smallest_multiple(upto: u64) -> u64 {
     (1..=upto)
         .map(get_factor_map)
-        .fold(HashMap::new(), combine_factor_maps)
+        .fold(hmap!(), combine_factor_maps)
         .iter()
         .fold(1u64, |number, (factor, frequency)| {
             number * (*factor as u64).pow(*frequency as u32)
@@ -18,7 +19,7 @@ pub fn smallest_multiple(upto: u64) -> u64 {
 }
 
 pub fn get_factor_map(n: u64) -> HashMap<u64, usize> {
-    let mut factors_map: HashMap<u64, usize> = HashMap::new();
+    let mut factors_map: HashMap<u64, usize> = hmap!();
 
     let mut number = n;
     let mut factor = 2;

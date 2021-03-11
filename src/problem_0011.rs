@@ -1,6 +1,7 @@
 //! Largest product in a grid
 
 use lazy_static::lazy_static;
+use std::cmp::max;
 use std::fs;
 
 lazy_static! {
@@ -21,7 +22,7 @@ pub fn solve() -> u64 {
 
 macro_rules! max {
     ($x: expr) => ($x);
-    ($x: expr, $($z: expr),+) => (::std::cmp::max($x, max!($($z),*)));
+    ($x: expr, $($z: expr),+) => (max($x, max!($($z),*)));
 }
 
 pub fn get_indices_product(indices: Vec<(usize, usize)>) -> u64 {

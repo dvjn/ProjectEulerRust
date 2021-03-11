@@ -2,17 +2,14 @@
 
 use lazy_static::lazy_static;
 use std::{collections::HashMap, sync::Mutex};
+use sugars::{hmap, mutex};
 
 pub fn solve() -> u64 {
     longest_collatz_sequence_below(1_000_000)
 }
 
 lazy_static! {
-    static ref COLLATZ_LENGTHS: Mutex<HashMap<u64, usize>> = {
-        let mut m = HashMap::new();
-        m.insert(1, 1);
-        Mutex::new(m)
-    };
+    static ref COLLATZ_LENGTHS: Mutex<HashMap<u64, usize>> = mutex!(hmap! {1=>1});
 }
 
 pub fn get_collatz_length(number: u64) -> usize {
