@@ -232,6 +232,7 @@ dependencies = [
  "lazy_static",
  "paste",
  "structopt",
+ "sugars",
  "webbrowser",
 ]
 
@@ -273,6 +274,12 @@ dependencies = [
  "quote",
  "syn",
 ]
+
+[[package]]
+name = "sugars"
+version = "3.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "3405d972f8a643dfb7a571a51bd9f700c9ebb9d57543d3207a7db90bce8f0a76"
 
 [[package]]
 name = "syn"
