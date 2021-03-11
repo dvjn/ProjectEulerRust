@@ -136,11 +136,13 @@
 <span id="133">133</span>
 <span id="134">134</span>
 <span id="135">135</span>
+<span id="136">136</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">//! Number letter counts</span>
 
 <span class="kw">use</span> <span class="ident">lazy_static</span>::<span class="ident">lazy_static</span>;
 <span class="kw">use</span> <span class="ident">std</span>::{<span class="ident">collections</span>::<span class="ident">HashMap</span>, <span class="ident">sync</span>::<span class="ident">Mutex</span>};
+<span class="kw">use</span> <span class="ident">sugars</span>::{<span class="ident">hmap</span>, <span class="ident">mutex</span>};
 
 <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">solve</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">u64</span> {
     <span class="ident">number_letter_counts_upto</span>(<span class="number">1000</span>)
@@ -187,15 +189,15 @@
 
 <span class="macro">lazy_static</span><span class="macro">!</span> {
     <span class="kw">static</span> <span class="kw-2">ref</span> <span class="ident">NUMBER_LETTER_COUNTS</span>: <span class="ident">Mutex</span><span class="op">&lt;</span><span class="ident">HashMap</span><span class="op">&lt;</span><span class="ident">u64</span>, <span class="ident">u64</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">=</span> {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">m</span> <span class="op">=</span> <span class="ident">HashMap</span>::<span class="ident">new</span>();
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">number_letter_counts</span> <span class="op">=</span> <span class="macro">hmap</span><span class="macro">!</span>();
         <span class="kw">for</span> (<span class="ident">number</span>, <span class="ident">word</span>) <span class="kw">in</span> <span class="ident">ONES</span>.<span class="ident">iter</span>().<span class="ident">enumerate</span>() {
-            <span class="ident">m</span>.<span class="ident">insert</span>(<span class="ident">number</span> <span class="kw">as</span> <span class="ident">u64</span>, <span class="ident">word</span>.<span class="ident">len</span>() <span class="kw">as</span> <span class="ident">u64</span>);
+            <span class="ident">number_letter_counts</span>.<span class="ident">insert</span>(<span class="ident">number</span> <span class="kw">as</span> <span class="ident">u64</span>, <span class="ident">word</span>.<span class="ident">len</span>() <span class="kw">as</span> <span class="ident">u64</span>);
         }
         <span class="kw">for</span> (<span class="ident">number</span>, <span class="ident">word</span>) <span class="kw">in</span> (<span class="number">10</span>..<span class="number">100</span>).<span class="ident">step_by</span>(<span class="number">10</span>).<span class="ident">zip</span>(<span class="ident">TENS</span>.<span class="ident">iter</span>()) {
-            <span class="ident">m</span>.<span class="ident">insert</span>(<span class="ident">number</span> <span class="kw">as</span> <span class="ident">u64</span>, <span class="ident">word</span>.<span class="ident">len</span>() <span class="kw">as</span> <span class="ident">u64</span>);
+            <span class="ident">number_letter_counts</span>.<span class="ident">insert</span>(<span class="ident">number</span> <span class="kw">as</span> <span class="ident">u64</span>, <span class="ident">word</span>.<span class="ident">len</span>() <span class="kw">as</span> <span class="ident">u64</span>);
         }
 
-        <span class="ident">Mutex</span>::<span class="ident">new</span>(<span class="ident">m</span>)
+        <span class="macro">mutex</span><span class="macro">!</span>(<span class="ident">number_letter_counts</span>)
     };
 }
 
