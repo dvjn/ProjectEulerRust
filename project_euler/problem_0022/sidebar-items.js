@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["get_name_worth",""],["name_scores",""],["solve",""]]});
