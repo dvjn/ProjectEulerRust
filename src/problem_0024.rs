@@ -5,12 +5,12 @@ pub fn solve() -> u64 {
 }
 
 fn get_number_of_permutations(length: usize) -> usize {
-    (1..=length).fold(1, |x, y| x * y)
+    (1..=length).product()
 }
 
 pub fn get_nth_lexicographic_permutation(digits: Vec<u64>, n: usize) -> u64 {
     let mut sorted_digits = digits.clone();
-    sorted_digits.sort();
+    sorted_digits.sort_unstable();
 
     get_nth_lexicographic_permutation_recursive(digits, n - 1)
         .iter()

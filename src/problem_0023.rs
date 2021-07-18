@@ -55,7 +55,7 @@ fn get_factors(number: u64) -> HashSet<u64> {
             FACTORS
                 .lock()
                 .unwrap()
-                .insert(number, factors.iter().map(|&num| num).collect());
+                .insert(number, factors.iter().copied().collect());
 
             factors
         }
