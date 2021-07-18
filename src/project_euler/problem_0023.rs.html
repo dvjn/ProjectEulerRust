@@ -107,7 +107,6 @@
 <span id="104">104</span>
 <span id="105">105</span>
 <span id="106">106</span>
-<span id="107">107</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">//! Names scores</span>
 
@@ -124,7 +123,6 @@
     <span class="kw">static</span> <span class="kw-2">ref</span> <span class="ident">FACTORS</span>: <span class="ident">Mutex</span><span class="op">&lt;</span><span class="ident">HashMap</span><span class="op">&lt;</span><span class="ident">u64</span>, <span class="ident">HashSet</span><span class="op">&lt;</span><span class="ident">u64</span><span class="op">&gt;</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">=</span> <span class="macro">mutex!</span>(<span class="macro">hmap!</span>());
     <span class="comment">// generate abundant numbers till 28123</span>
     <span class="kw">static</span> <span class="kw-2">ref</span> <span class="ident">ABUNDANT_NUMBERS</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">u64</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">generate_abundant_numbers</span>(<span class="number">28123</span>);
-    <span class="comment">// static ref ABUNDANT_SET: HashSet&lt;u64&gt; = ABUNDANT_NUMBERS.iter().map(|&amp;number| number).collect();</span>
 }
 
 <span class="comment">// &quot;Fast Inverse Sqrt from Quake&quot; Inverted</span>
