@@ -1,3 +1,3 @@
 (function() {var implementors = {};
-implementors["project_euler"] = [{"text":"impl StructOpt for ProjectEulerCli","synthetic":false,"types":[]}];
+implementors["project_euler"] = [{"text":"impl StructOpt for <a class=\"enum\" href=\"project_euler/enum.ProjectEulerCli.html\" title=\"enum project_euler::ProjectEulerCli\">ProjectEulerCli</a>","synthetic":false,"types":["project_euler::ProjectEulerCli"]}];
 if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()
