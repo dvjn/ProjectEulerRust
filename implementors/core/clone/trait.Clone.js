@@ -1,3 +1,3 @@
 (function() {var implementors = {};
-implementors["project_euler"] = [{"text":"impl <a class=\"trait\" href=\"https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html\" title=\"trait core::clone::Clone\">Clone</a> for <a class=\"struct\" href=\"project_euler/problem_0019/struct.Day.html\" title=\"struct project_euler::problem_0019::Day\">Day</a>","synthetic":false,"types":["project_euler::problem_0019::Day"]}];
+implementors["project_euler"] = [{"text":"impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.54.0/core/clone/trait.Clone.html\" title=\"trait core::clone::Clone\">Clone</a> for <a class=\"struct\" href=\"project_euler/problem_0019/struct.Day.html\" title=\"struct project_euler::problem_0019::Day\">Day</a>","synthetic":false,"types":["project_euler::problem_0019::Day"]}];
 if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()
