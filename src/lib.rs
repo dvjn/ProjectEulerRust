@@ -9,11 +9,11 @@ use structopt::StructOpt;
 macro_rules! include_problems {($($problem:tt)*) => (paste! {
     $(pub mod [<problem_$problem>];)*
     #[allow(clippy::zero_prefixed_literal)]
-    pub fn solve_problem(selected_problem: u8) -> u64 {
+    pub fn solve_problem(selected_problem: u8) -> String {
         match selected_problem {
             $($problem => {
                 use $crate::[<problem_$problem>];
-                [<problem_$problem>]::solve()
+                format!("{}", [<problem_$problem>]::solve())
             },)*
             _ => panic!("Can't find the problem 🤷"),
         }
