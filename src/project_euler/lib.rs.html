@@ -55,11 +55,11 @@
 <span class="macro">macro_rules!</span> <span class="ident">include_problems</span> {($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">problem</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>) <span class="op">=</span><span class="op">&gt;</span> (<span class="macro">paste!</span> {
     $(<span class="kw">pub</span> <span class="kw">mod</span> [<span class="op">&lt;</span><span class="ident">problem_</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">problem</span><span class="op">&gt;</span>];)<span class="op">*</span>
     <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">clippy::zero_prefixed_literal</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">solve_problem</span>(<span class="ident">selected_problem</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">u64</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">solve_problem</span>(<span class="ident">selected_problem</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">String</span> {
         <span class="kw">match</span> <span class="ident">selected_problem</span> {
             $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">problem</span> <span class="op">=</span><span class="op">&gt;</span> {
                 <span class="kw">use</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::[<span class="op">&lt;</span><span class="macro-nonterminal">problem_</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">problem</span><span class="op">&gt;</span>];
-                [<span class="op">&lt;</span><span class="ident">problem_</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">problem</span><span class="op">&gt;</span>]<span class="ident">::solve</span>()
+                <span class="macro">format!</span>(<span class="string">&quot;{}&quot;</span>, [<span class="op">&lt;</span><span class="ident">problem_</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">problem</span><span class="op">&gt;</span>]<span class="ident">::solve</span>())
             },)<span class="op">*</span>
             <span class="kw">_</span> <span class="op">=</span><span class="op">&gt;</span> <span class="macro">panic!</span>(<span class="string">&quot;Can&#39;t find the problem 🤷&quot;</span>),
         }
