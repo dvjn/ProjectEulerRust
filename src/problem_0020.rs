@@ -7,9 +7,9 @@ pub fn solve() -> u64 {
 pub fn sum_of_digits_of_factorial(number: u64) -> u64 {
     let mut results: Vec<u8> = vec![1];
     let mut carry = 0;
-    for multiplicant in 1..=number {
+    for multiplicand in 1..=number {
         for digit in results.iter_mut() {
-            let result = (*digit as u64) * multiplicant + carry;
+            let result = (*digit as u64) * multiplicand + carry;
             *digit = (result % 10) as u8;
             carry = result / 10;
         }

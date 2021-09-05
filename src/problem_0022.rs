@@ -7,7 +7,7 @@ pub fn solve() -> u64 {
     name_scores()
 }
 
-const ASCII_UPPER_ALPHBET_OFFSET: u64 = ('A' as u64) - 1;
+const ASCII_UPPER_ALPHABET_OFFSET: u64 = ('A' as u64) - 1;
 
 lazy_static! {
     static ref NAMES: Vec<String> = {
@@ -30,7 +30,7 @@ lazy_static! {
 pub fn get_name_worth(name: &str) -> u64 {
     name.to_ascii_uppercase()
         .chars()
-        .map(|letter| (letter as u64) - ASCII_UPPER_ALPHBET_OFFSET)
+        .map(|letter| (letter as u64) - ASCII_UPPER_ALPHABET_OFFSET)
         .sum()
 }
 
