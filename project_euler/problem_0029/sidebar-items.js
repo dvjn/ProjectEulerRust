@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["match_hashmap",""],["solve",""],["terms_of_sequence_by_power",""]]});
