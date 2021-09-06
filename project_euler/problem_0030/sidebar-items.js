@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["solve",""],["sum_of_nth_power",""]]});
