@@ -15,7 +15,7 @@ pub fn sum_of_diagonals_of_spiral(size: u64) -> u64 {
         }
     }
 
-    1 + sum
+    sum
 }
 
 #[cfg(test)]
