@@ -1,27 +1,26 @@
 //! Quadratic primes
 
-use std::{collections::HashSet, iter::FromIterator};
+use std::collections::HashSet;
 
 pub fn solve() -> i64 {
     quadratic_coefficients_product_producing_max_primes(1000)
 }
 
 pub fn quadratic_coefficients_product_producing_max_primes(upto: u64) -> i64 {
-    let primes: HashSet<i64> = HashSet::from_iter(
-        {
-            let mut primes = vec![2];
-            let mut current_number = 3;
-            while current_number <= upto {
-                if !primes.iter().any(|prime| current_number % prime == 0) {
-                    primes.push(current_number);
-                }
-                current_number += 2;
+    let primes: HashSet<i64> = {
+        let mut primes = vec![2i64];
+        let mut current_number = 3i64;
+        while current_number <= (upto as i64) {
+            if !primes.iter().any(|prime| current_number % prime == 0) {
+                primes.push(current_number);
             }
-            primes
+            current_number += 2;
         }
-        .iter()
-        .map(|&n| n as i64),
-    );
+        primes
+    }
+    .iter()
+    .cloned()
+    .collect();
 
     let mut max_primes: usize = 0;
     let mut max_coefficients: (i64, i64) = (0, 0);
@@ -36,8 +35,8 @@ pub fn quadratic_coefficients_product_producing_max_primes(upto: u64) -> i64 {
     for a in (a_range_start..=a_range_end).step_by(2) {
         for b in primes.iter().cloned() {
             let mut primes_count = 0;
-            for n in 0.. {
-                let solution = n * n + a * n + b;
+            for n in 0i64.. {
+                let solution = n.pow(2) + a * n + b;
                 if !primes.contains(&solution) {
                     break;
                 }

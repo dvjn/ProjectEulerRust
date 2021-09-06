@@ -49,7 +49,7 @@ pub fn combine_factor_maps(
 ) -> HashMap<u64, usize> {
     let mut combined_factor_map: HashMap<u64, usize> = factor_map_1;
     for (factor, frequency) in factor_map_2.iter() {
-        match combined_factor_map.get_mut(&factor) {
+        match combined_factor_map.get_mut(factor) {
             Some(combined_frequency) => {
                 *combined_frequency = max(*combined_frequency, *frequency);
             }
